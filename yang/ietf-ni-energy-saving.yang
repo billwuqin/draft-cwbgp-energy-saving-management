@@ -2,7 +2,6 @@ module ietf-ni-energy-saving {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-ni-energy-saving";
   prefix esm-ni;
-
   import ietf-energy-saving-common {
     prefix esm-common;
     reference
