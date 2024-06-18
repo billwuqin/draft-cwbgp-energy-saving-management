@@ -3,6 +3,7 @@ module ietf-ntw-energy-saving {
   namespace "urn:ietf:params:xml:ns:yang:ietf-ntw-energy-saving";
   prefix esm-ntw;
 
+
   import ietf-energy-saving-common {
     prefix esm-common;
     reference
