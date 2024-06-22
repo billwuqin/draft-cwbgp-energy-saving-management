@@ -5,24 +5,19 @@ module ietf-ni-energy-saving {
   import ietf-energy-saving-common {
     prefix esm-common;
     reference
-      "RFC XXXX: A YANG Data Model for Energy Saving Management";
+      "RFC XXXX: YANG Data Models for Energy Saving Management";
   }
   import ietf-network-inventory {
     prefix ni;
     reference
       "RFC IIII: A YANG Data Model for Network Inventory";
   }
-  /*import ietf-yang-types {
-    prefix yang;
-    reference
-      "RFC 6021: Common YANG Types";
-  }*/
 
   organization
-    "IETF IVY Working Group.";
+    "IETF xxx Working Group.";
   contact
-    "WG Web:   <https://datatracker.ietf.org/wg/opsawg/>;
-     WG List:  <mailto:opsawg@ietf.org>
+    "WG Web:   <https://datatracker.ietf.org/wg/xxx/>;
+     WG List:  <mailto:xxxx@ietf.org>
 
      Author:   Gen Chen
                <mailto:chengen@huawei.com>
@@ -54,7 +49,7 @@ module ietf-ni-energy-saving {
     description
       "Initial revision.";
     reference
-      "RFC XXXX: A YANG Data Model for Energy Saving Management";
+      "RFC XXXX: YANG Data Models for Energy Saving Management";
   }
 
   grouping network-element-ref {
@@ -123,39 +118,4 @@ module ietf-ni-energy-saving {
       uses esm-common:power-parameters;
     }
   }
-
-/*  container component-energy-monitoring {
-    description
-      "Energy monitoring data for components.";
-    container energy-consumption {
-      description
-        "Statistics of component about energy monitoring.";
-      uses energy-consumption-data;
-    }
-    container energy-saving {
-      description
-        "Controls energy saving parameters of a component.";
-      leaf enabled {
-        type boolean;
-        default "true";
-        description
-          "Controls whether the energy-saving
-           of the component is enabled (when set to true)
-           or disabled (set to false).";
-      }
-      leaf power-state {
-        type identityref {
-          base energy-saving-power-state;
-        }
-        description
-          "The device energy saving operator state.";
-      }
-    }
-    container inventory-component-ref {
-      description
-        "The reference of the component from which this
-         termination point is abstracted.";
-      uses component-ref;
-    }
-  }*/
 }

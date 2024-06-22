@@ -6,14 +6,14 @@ module ietf-energy-saving-common {
   import ietf-yang-types {
     prefix yang;
     reference
-      "RFC 6021: Common YANG Types";
+      "RFC 6991: Common YANG Types";
   }
 
   organization
-    "IETF IVY Working Group.";
+    "IETF xxx Working Group.";
   contact
-    "WG Web:   <https://datatracker.ietf.org/wg/opsawg/>;
-     WG List:  <mailto:opsawg@ietf.org>
+    "WG Web:   <https://datatracker.ietf.org/wg/xxx/>;
+     WG List:  <mailto:xxxx@ietf.org>
 
      Author:   Gen Chen
                <mailto:chengen@huawei.com>

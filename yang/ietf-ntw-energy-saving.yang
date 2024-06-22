@@ -6,24 +6,23 @@ module ietf-ntw-energy-saving {
   import ietf-energy-saving-common {
     prefix esm-common;
     reference
-      "RFC XXXX: A YANG Data Model for Energy Saving Management";
+      "RFC XXXX: YANG Data Models for Energy Saving Management";
   }
-  /*import ietf-yang-types {
-    prefix yang;
-    reference
-      "RFC 6021: Common YANG Types";
-  }*/
   import ietf-network {
     prefix nw;
     reference
       "RFC 8345: A YANG Data Model for Network Topologies";
   }
-
+  import iana-hardware {
+   prefix ianahw;
+   reference
+     "https://www.iana.org/assignments/iana-hardware/iana-hardware.xhtml";
+  }
   organization
-    "IETF IVY Working Group.";
+    "IETF XXX Working Group.";
   contact
-    "WG Web:   <https://datatracker.ietf.org/wg/opsawg/>;
-     WG List:  <mailto:opsawg@ietf.org>
+    "WG Web:   <https://datatracker.ietf.org/wg/xxx/>;
+     WG List:  <mailto:xxxx@ietf.org>
 
      Author:   Gen Chen
                <mailto:chengen@huawei.com>
@@ -55,9 +54,9 @@ module ietf-ntw-energy-saving {
     description
       "Initial revision.";
     reference
-      "RFC XXXX: A YANG Data Model for Energy Saving Management";
+      "RFC XXXX: YANG Data Models for Energy Saving Management";
   }
-
+  
   augment "/nw:networks/nw:network/nw:node" {
     if-feature "esm-common:energy-saving";
     description
@@ -73,41 +72,57 @@ module ietf-ntw-energy-saving {
         "List of the energy saving mode.";
       uses esm-common:energy-saving-modes;
     }
-  }
-
-/*
-  container component-energy-monitoring {
-    description
-      "Energy monitoring data for components.";
-    container energy-consumption {
+    list component {
+      key name;
+      config false;
       description
-        "Statistics of component about energy monitoring.";
-      uses energy-consumption-data;
-    }
-    container energy-saving {
-      description
-        "Controls energy saving parameters of a component.";
-      leaf enabled {
-        type boolean;
-        default "true";
+      "List of components.";
+      leaf name {
+        type string;
         description
-          "Controls whether the energy-saving
-           of the component is enabled (when set to true)
-           or disabled (set to false).";
+          "The name assigned to this component.
+           This name is not required to be the same as
+           entPhysicalName.";
       }
-      leaf power-state {
-        type identityref {
-          base energy-saving-power-state;
+      leaf class {
+	type identityref {
+	  base ianahw:hardware-class;
+	}
+	mandatory true;
+	description
+	  "An indication of the general hardware type of the
+	   component.";
+	reference
+	  "RFC 6933: Entity MIB (Version 4) - entPhysicalClass";
         }
+      container energy-monitoring {
         description
-          "The device energy saving operator state.";
-      }
-    }
-    container inventory-component-ref {
-      description
-        "The reference of the component from which this
-         termination point is abstracted.";
-      uses component-ref;
-    }
-  }*/
+          "Energy monitoring data for components.";
+        container energy-consumption {
+          description
+          "Statistics of component about energy monitoring.";
+          uses esm-common:energy-consumption-data;
+        }
+       container energy-saving {
+        description
+        "Controls energy saving parameters of a component.";
+         leaf enabled {
+          type boolean;
+          default "true";
+           description
+             "Controls whether the energy-saving
+             of the component is enabled (when set to true)
+              or disabled (set to false).";
+         }
+         leaf power-state {
+          type identityref {
+            base esm-common:energy-saving-power-state;
+          }
+          description
+            "The device energy saving operator state.";
+         }
+       }
+     } 
+	}
+  }
 }
